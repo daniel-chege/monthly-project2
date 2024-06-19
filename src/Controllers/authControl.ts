@@ -36,7 +36,7 @@ export const registerUser = async (req: Request, res: Response) => {
         const HashPassword = await Bcrypt.hash(UserPassword, 10);
 
         // Insert user into database
-        await dbInstance.exec('AddUsers', { UserID: id, UserName, Email, UserPassword: HashPassword });
+        await dbInstance.exec('postUsers', { UserID: id, UserName, Email, UserPassword: HashPassword });
 
         // Send registration email to the user
         await sendRegistrationEmail(Email, UserName);
