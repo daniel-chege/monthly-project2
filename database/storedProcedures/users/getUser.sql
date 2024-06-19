@@ -1,0 +1,10 @@
+USE backend;
+GO
+CREATE OR ALTER PROCEDURE getUser(
+@userId VARCHAR(255), 
+@userName VARCHAR(255))
+AS
+BEGIN
+SELECT * FROM users;
+END
+GO

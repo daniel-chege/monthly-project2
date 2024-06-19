@@ -1,0 +1,9 @@
+USE backend;
+
+GO
+CREATE OR ALTER PROCEDURE getBooks
+AS
+BEGIN
+SELECT * FROM booking;
+END
+GO
