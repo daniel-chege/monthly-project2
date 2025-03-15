@@ -6,7 +6,11 @@ export const RegisterSchema= Joi.object({
         'string.empty':'Please enter an Email',
         'string.email':"Please enter a valid email"
     }),
-    UserPassword:Joi.string().required().pattern(
+    roleName:Joi.string().required(),
+    age:Joi.string().required(),
+    gender:Joi.string().required(),
+    phoneNumber:Joi.string().required(),
+    password:Joi.string().required().pattern(
         new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$')
     )
 })

@@ -1,9 +1,12 @@
 import { ConnectionPool, Request } from "mssql";
 import { sqlConfig } from "../config";
 import mssql from 'mssql';
-import { number, string } from "joi";
+
 
 export class DbHelper {
+
+    
+    
     private pool: Promise<ConnectionPool>;
 
     constructor() {
@@ -30,5 +33,3 @@ export class DbHelper {
         return (await ((await this.pool).request().query(queryString)));
     }
 }
-
-// export default DbHelper;

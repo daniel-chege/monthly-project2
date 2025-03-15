@@ -1,14 +1,14 @@
+import cors from 'cors'
 import express, { json } from 'express';
-import TourRouter from './Routes/tourRoute';
-import HotelRouter from './Routes/hotelRoute'; 
-import BookRouter from './Routes/bookingRoutes';
 import authRouter from './Routes/authRoute';
+import viewRouter from './Routes/viewsRoutes';
+import incidenceRouter from './Routes/incidencesRoutes';
 
 
 const app = express();
+app.use(cors());
 app.use(json());
-app.use("/bookings", BookRouter);
-app.use("/tours", TourRouter);
-app.use("hotels", HotelRouter);
 app.use("/auth", authRouter);
-app.listen(5500, () => { console.log("server is running...") });
+app.use("/view", viewRouter);
+app.use("/incidence", incidenceRouter)
+app.listen(5501, () => { console.log("server is running...") });

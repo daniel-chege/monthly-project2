@@ -1,0 +1,8 @@
+USE CitizenConnect;
+GO
+CREATE OR ALTER PROCEDURE getroles
+AS
+BEGIN
+SELECT * FROM roles;
+END
+GO

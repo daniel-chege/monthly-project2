@@ -20,7 +20,7 @@ export async function sendRegistrationEmail(email: string, userName: string) {
         throw new Error('Failed to send registration email');
     }
 }
-export async function sendBookingEmail(email: string, userName: string) {
+export async function sendforgotpasswordEmail(email: string, userName: string) {
     try {
         let transporter = nodemailer.createTransport(smtpConfig);
 
@@ -28,14 +28,14 @@ export async function sendBookingEmail(email: string, userName: string) {
             from: process.env.EMAIL,
             to: email,
             subject: 'Welcome to Our Application!',
-            text: `Hello ${userName},\n\nThank you for booking with our application.`
+            text: `Hello ${userName},\n\nThank you for resetting your password.`
             // You can also use HTML for the email content if needed
         };
 
         await transporter.sendMail(mailOptions);
-        console.log(`Booking email sent to ${email}`);
+        console.log(`forgotpassword email sent to ${email}`);
     } catch (error) {
-        console.error('Error sending booking email:', error);
-        throw new Error('Failed to send booking email');
+        console.error('Error sending forgotpassword email:', error);
+        throw new Error('Failed to send forgotpassword email');
     }
 }

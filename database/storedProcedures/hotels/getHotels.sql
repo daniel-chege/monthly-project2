@@ -1,9 +1,0 @@
-USE backend;
-
-GO
-CREATE OR ALTER PROCEDURE getHotels
-AS
-BEGIN
-SELECT * FROM hotels;
-END
-GO

@@ -2,9 +2,10 @@ import nodemailer from 'nodemailer'
 import path from 'path'
 import dotenv from 'dotenv'
 import ejs from 'ejs'
-dotenv.config({path:path.resolve(__dirname,"../../env")})
 
-let config = {
+dotenv.config({path:path.resolve(__dirname,"../../.env")})
+
+let config = { 
     host:"stmp.gmail.com",
     service:"gmail",
     port:587,
@@ -22,11 +23,12 @@ async function sendEmail(messageOption:any){
     let transporter=createTransporter(config)
     await transporter.verify()
 
-    await transporter.sendMail(messageOption,(err, info)=>{
+    await transporter.sendMail(messageOption, (err, info)=>{
         if(err){
-            console.log(err);
+            console.log('error sending email',err);
+        }else{
+        console.log('email sent',info);
         }
-        console.log(info);
     })
 }
 
@@ -45,9 +47,10 @@ ejs.renderFile("../../templates/register.ejs", {name:"Jane Doe"}, (err,data)=>{
     let messageOptions={
         to:process.env.EMAIL,
         from:process.env.EMAIL,
-        cc:'',
-        bcc:[],
+        // cc:'',
+        // bcc:[],
         subject:"Testing",
+        // html:'<h1>hello there</h1>'
         html:data
     }
     sendEmail(messageOptions)

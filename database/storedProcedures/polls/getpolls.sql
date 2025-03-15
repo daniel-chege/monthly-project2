@@ -1,0 +1,9 @@
+USE CitizenConnect;
+GO
+CREATE OR ALTER PROCEDURE GetAllPolls
+AS
+BEGIN
+    SELECT * FROM polls;
+END;
+
+GO

@@ -1,0 +1,9 @@
+USE CitizenConnect;
+GO
+CREATE OR ALTER PROCEDURE getrole(
+@roleId VARCHAR(255))
+AS
+BEGIN
+SELECT * FROM role WHERE roleId=@roleId;
+END
+GO

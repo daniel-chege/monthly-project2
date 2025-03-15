@@ -1,10 +1,9 @@
-USE backend;
+USE CitizenConnect;
 GO
-CREATE OR ALTER PROCEDURE getUser(
-@userId VARCHAR(255), 
-@userName VARCHAR(255))
+CREATE OR ALTER PROCEDURE getuser(
+@email VARCHAR(255))
 AS
 BEGIN
-SELECT * FROM users;
+SELECT * FROM users WHERE email=@email;
 END
 GO

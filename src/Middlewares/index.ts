@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken'
 import path from 'path';
 import dotenv from 'dotenv';
-import { Payload } from '../Models/authModel';
+import { Payload } from '../Models/allModel';
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 export interface extendedRequest1 extends Request{
@@ -14,7 +14,7 @@ export function verifyToken(req:extendedRequest1, res:Response, next:NextFunctio
     try{
         const token=req.headers['token'] as string
         if (!token){
-            return res.status(401).json({message:'forbiden'})
+            return res.status(401).json({message:'forbbiden'})
         }
         const decodedData=jwt.verify(token,process.env.SECRET as string) as Payload
         req.info=decodedData
@@ -23,4 +23,4 @@ export function verifyToken(req:extendedRequest1, res:Response, next:NextFunctio
         return res.status(500).json(error)
     }
     next()
-}``
+}

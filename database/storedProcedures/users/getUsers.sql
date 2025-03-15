@@ -1,4 +1,4 @@
-USE backend;
+USE CitizenConnect;
 
 GO
 CREATE OR ALTER PROCEDURE getUsers

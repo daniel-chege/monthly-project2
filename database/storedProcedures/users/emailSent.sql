@@ -1,0 +1,9 @@
+USE CitizenConnect;
+GO
+CREATE OR ALTER PROCEDURE postemail(
+@email VARCHAR(255))
+AS
+BEGIN
+SELECT * FROM users WHERE emailSent=0;
+END
+GO
